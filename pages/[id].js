@@ -2,6 +2,8 @@ import React from "react";
 import Head from "next/head";
 import styles from "../styles/Post.module.css";
 
+import Card from "../components/Card";
+
 function Post({ post }) {
   return (
     <div className={styles.container}>
@@ -12,10 +14,14 @@ function Post({ post }) {
       <div className={styles.main}>
         <h2 className={styles.title}>Comments</h2>
         {post.comments.map((comment) => (
-          <div key={comment.id} className={styles.comment}>
+          <Card 
+            key={comment.id} 
+            className={styles.comment} 
+            width="50%"
+          >
             <h4>{comment.name}</h4>
             <p>{comment.body}</p>
-          </div>
+          </Card>
         ))}
       </div>
     </div>
